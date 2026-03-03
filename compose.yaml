@@ -1,0 +1,40 @@
+services:
+  kubenews_banco:
+    container_name: kubenews_banco
+    image: postgres:18-alpine
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: Pg#123
+      POSTGRES_USER: kubenews
+      POSTGRES_DB: kubenews
+    volumes:
+      - kubenews_vol:/var/lib/postgresql/18/docker
+    networks:
+      - kubenews_net
+  kubenews_main:
+    container_name: kubenews_main
+    depends_on:
+      - kubenews_banco
+    image: v2power/kubenews:v2
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+    networks:
+      - kubenews_net
+    environment:
+      DB_PASSWORD: Pg#123
+      DB_USERNAME: kubenews
+      DB_DATABASE: kubenews
+      DB_HOST: kubenews_banco
+
+volumes:
+  kubenews_vol:
+    name: kubenews_vol
+
+networks:
+  kubenews_net:
+    driver: bridge
+    name: kubenews_net
