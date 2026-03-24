@@ -3,3 +3,5 @@
 compose.yaml
 .dockerignore
 Dockerfile
+
+/src/node_modules

@@ -1,7 +1,10 @@
-FROM node:alpine3.23
+FROM node:24 AS builder
+COPY ./src /app
 WORKDIR /app
-COPY src/package*.json ./
-RUN npm install
-COPY src/ .
+RUN npm ci --omit=dev
+
+FROM gcr.io/distroless/nodejs24-debian13
+COPY --from=builder /app /app
+WORKDIR /app
 EXPOSE 8080
-CMD [ "node", "server.js" ]
+CMD [ "server.js" ]

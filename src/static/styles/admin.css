@@ -30,7 +30,7 @@
 .no-posts__button {
   border-radius: 8px;
   border: 1px solid #1e293b;
-  background: #ed0000;
+  background: #00ed20;
   width: 100%;
   padding: 24px;
   cursor: pointer;
@@ -97,7 +97,7 @@
 }
 
 .post-form__label {
-  color: #ff6969;
+  color: #69ff96;
   font-family: "Source Sans 3", sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -143,7 +143,7 @@
 .post-form__button {
   border-radius: 8px;
   border: 1px solid #1e293b;
-  background: #ed0000;
+  background: #00ed00;
   width: 100%;
   padding: 24px;
   cursor: pointer;
@@ -269,7 +269,7 @@
 .post__card__button {
   border-radius: 8px;
   border: 1px solid #1e293b;
-  background: #ed0000;
+  background: #00ed0c;
   width: 100%;
   padding: 16px 24px;
   cursor: pointer;
@@ -369,7 +369,7 @@
 }
 
 .post__date {
-  color: #69d6ff;
+  color: #7bff69;
   font-family: "Inter";
   font-size: 14px;
   font-style: normal;
@@ -425,5 +425,5 @@
 .post-form__error {
   font-size: 12px;
   margin-top: 5px;
-  color: red;
+  color: rgb(0, 255, 55);
 }
